@@ -34,7 +34,7 @@ export default function Home() {
         {" "}
         <Link
           className="btn btn-primary btn-lg px-4 gap-3"
-          to="/posts"
+          to="/react-router/posts"
           role="button"
         >
           Posts

@@ -6,7 +6,7 @@ export default function Layout() {
     <>
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand" to="/react-router">
             Mazengo
           </Link>
           <button
@@ -23,12 +23,16 @@ export default function Layout() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/react-router"
+                >
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to="/posts">
+                <Link className="nav-link" to="/react-router/posts">
                   Posts
                 </Link>
               </li>
@@ -44,7 +48,10 @@ export default function Layout() {
                 </a>
                 <ul className="dropdown-menu">
                   <li>
-                    <Link className="dropdown-item" to={"/contact"}>
+                    <Link
+                      className="dropdown-item"
+                      to={"/react-router/contact"}
+                    >
                       Contact
                     </Link>
                   </li>
