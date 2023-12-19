@@ -6,6 +6,7 @@ import Contact from "./pages/Contact";
 import NoPage from "./pages/NoPage";
 import Posts from "./pages/Posts";
 import { useState } from "react";
+import SinglePost from "./pages/SinglePost";
 
 function App() {
   const [theme, setTheme] = useState(
@@ -20,10 +21,11 @@ function App() {
           path="/react-router"
           element={<Layout theme={theme} setTheme={setTheme} />}
         >
-          <Route index element={<Home theme={theme} />} />
-          <Route path="contact" element={<Contact theme={theme} />} />
-          <Route path="posts" element={<Posts theme={theme} />} />
-          <Route path="*" element={<NoPage theme={theme} />} />
+          <Route index element={<Home />} />
+          <Route path="contact" element={<Contact />} />
+          <Route path="posts" element={<Posts />} />
+          <Route path="posts/:id" element={<SinglePost />} />
+          <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
