@@ -1,10 +1,20 @@
-import { useEffect } from "react";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import { Outlet, Link } from "react-router-dom";
 
-export default function Layout() {
+export default function Layout({ theme, setTheme }) {
+  const changeTheme = () => {
+    localStorage.setItem("theme", theme == "light" ? "dark" : "light");
+    setTheme(theme == "light" ? "dark" : "light");
+  };
   return (
-    <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <HelmetProvider>
+      <Helmet>
+        <html data-bs-theme={theme} />
+      </Helmet>
+      <nav
+        className="navbar navbar-expand-lg bg-body-tertiary"
+        // data-bs-theme={theme}
+      >
         <div className="container-fluid">
           <Link className="navbar-brand" to="/react-router">
             Mazengo
@@ -44,7 +54,7 @@ export default function Layout() {
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Dropdown
+                  More
                 </a>
                 <ul className="dropdown-menu">
                   <li>
@@ -64,9 +74,9 @@ export default function Layout() {
                     <hr className="dropdown-divider" />
                   </li>
                   <li>
-                    <a className="dropdown-item" href="#">
-                      Something else here
-                    </a>
+                    <button className="dropdown-item" onClick={changeTheme}>
+                      {theme == "light" ? "dark 🌒" : "light ☀"} mode
+                    </button>
                   </li>
                 </ul>
               </li>
@@ -90,8 +100,7 @@ export default function Layout() {
           </div>
         </div>
       </nav>
-
       <Outlet />
-    </>
+    </HelmetProvider>
   );
 }
